@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> VUE Hello World </title>
+</head>
+<body>
+
+<div id="app">{{message}}</div>
+
+<div id="list">
+  <ul>
+    <li v-for="item in players">{{item}}</li>
+  </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: ['Hello']
+    }
+  })
+
+  const list = new Vue({
+    el: '#list',
+    data: {
+      message: 'player',
+      players: ['messi', 'jordan', 'kobe']
+    }
+  })
+</script>
+
+</body>
+</html>
