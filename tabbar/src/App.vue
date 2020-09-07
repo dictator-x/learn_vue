@@ -1,23 +1,38 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+  <div id="app" >
+    <tab-bar>
+      <tab-bar-item>
+        <img slot="item-icon" src="@/assets/img/tabbar/home.png" alt="">
+        <div slot="item-text">Main</div>
+      </tab-bar-item>
+      <tab-bar-item>
+        <img slot="item-icon" src="@/assets/img/tabbar/categories.png" alt="">
+        <div slot="item-text">Category</div>
+      </tab-bar-item>
+      <tab-bar-item>
+        <img slot="item-icon" src="@/assets/img/tabbar/shoppingCart.png" alt="">
+        <div slot="item-text">Cart</div>
+      </tab-bar-item>
+      <tab-bar-item>
+        <img slot="item-icon" src="@/assets/img/tabbar/profile.png" alt="">
+        <div slot="item-text">Profile</div>
+      </tab-bar-item>
+    </tab-bar>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+  import TabBar from '@/components/tabbar/TabBar.vue'
+  import TabBarItem from './components/tabbar/TabBarItem.vue'
+  export default {
+    name: 'App',
+    components: {
+      TabBar,
+      TabBarItem
+    }
+  }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  @import "./assets/css/base.css";
 </style>
