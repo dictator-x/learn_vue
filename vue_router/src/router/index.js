@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 // import Home from '@/components/home.vue'
-// import About from '@/components/about.vue'
+// import User from '@/components/about.vue'
 // import User from '@/components/user.vue'
 
 const Home = () => import('@/components/home.vue')
@@ -22,6 +22,9 @@ const routes = [
   {
     path: '/home',
     component: Home,
+    meta: {
+      title: 'Home'
+    },
     children: [
       {
         path: 'news',
@@ -35,19 +38,40 @@ const routes = [
   },
   {
     path: '/about',
-    component: About
+    component: About,
+    meta: {
+      title: 'About'
+    },
   },
   {
     path: '/user/:userId',
-    component: User
+    component: User,
+    meta: {
+      title: 'User'
+    },
   },
   {
     path: '/profile',
-    component: Profile
+    component: Profile,
+    meta: {
+      title: 'Profile'
+    },
   }
 ]
 
-export default new Router({
+const router = new Router({
   routes,
   mode: 'history'
 })
+
+router.beforeEach((to, from , next) => {
+  // document.title = to.meta.title
+  document.title = to.matched[0].meta.title
+  next()
+})
+
+router.afterEach((to, from) => {
+  // console.log('afterEach')
+})
+
+export default router

@@ -4,6 +4,7 @@
     <p>User info: </p>
     <h2>{{ userId }}</h2>
     <h2>{{ $route.params.userId }}</h2>
+    <button @click="btnClick">button</button>
   </div>
 </template>
 
@@ -13,6 +14,12 @@
     computed: {
       userId() {
         return this.$route.params.userId
+      }
+    },
+    methods: {
+      btnClick() {
+        console.log(this.$router);
+        console.log(this.$route)
       }
     }
   }

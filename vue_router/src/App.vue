@@ -10,7 +10,9 @@
     <button @click="userClick">User</button>
     <button @click="profileClick">Profile</button>
 
-    <router-view></router-view>
+    <keep-alive exclude="Profile">
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 

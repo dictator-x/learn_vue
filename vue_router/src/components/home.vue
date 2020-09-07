@@ -10,7 +10,30 @@
 
 <script>
 export default {
-  name: 'Home'
+  name: 'Home',
+  data: function() {
+    return {
+      path: '/home/news'
+    }
+  },
+  created() {
+    console.log('create')
+  },
+  mounted() {
+  },
+  update() {
+  },
+  destroyed() {
+    console.log('destroy')
+  },
+  // available when using keep-alive. same as deactivated
+  activated() {
+    this.$router.push(this.path)
+  },
+  beforeRouteLeave(to, from, next) {
+    this.path = this.$route.path
+    next()
+  }
 }
 </script>
 
